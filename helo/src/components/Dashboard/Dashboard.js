@@ -9,15 +9,30 @@ export default class Dashboard extends Component {
             userPosts: true
         }
     }
-    render() {
-        let posts = this.state.posts.map( el => {
-            return(
-                <div></div>
-            )
+
+    handleSearch(input){
+        this.setState({
+            search: input
         })
+    }
+
+
+    render() {
+        // let posts = this.state.posts.map( el => {
+        //     return(
+        //         <div></div>
+        //     )
+        // })
+
         return (
             <div>
-                <h3>Dashboard</h3>
+                
+                <p>Search Bar</p>
+                <br />
+               
+                <input onChange={(e) => {this.handlePassword(e.target.value)}} type='text'/>
+                <button>Search</button>
+                <button>Reset</button>
             </div>
         )
     }

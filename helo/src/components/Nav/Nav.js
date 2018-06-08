@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 function Nav(props) {
-    console.log('nav', props)
+    console.log('nav: ', props)
         return (
             <div className='Nav'>
               <h4>Nav</h4>
