@@ -10,6 +10,11 @@ export default class Dashboard extends Component {
         }
     }
     render() {
+        let posts = this.state.posts.map( el => {
+            return(
+                <div></div>
+            )
+        })
         return (
             <div>
                 <h3>Dashboard</h3>
