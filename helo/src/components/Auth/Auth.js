@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 //import { Link } from 'react-router-dom'
 import axios from 'axios';
+import {connect} from 'react-redux';
+import { getUser } from './../../ducks/reducer';
 import './Auth.css';
 
-export default class Auth extends Component {
-    constructor(){
-        super();
+class Auth extends Component {
+    constructor(props){
+        super(props);
         this.state = {
             username: '',
             password: ''
@@ -32,6 +34,7 @@ export default class Auth extends Component {
         const {username, password} = this.state;
         axios.post('/api/register', {username, password})
         .then( res => {
+            this.props.getUser(res.data);
             this.props.history.push('/dashboard');
         })
     }
@@ -40,6 +43,7 @@ export default class Auth extends Component {
         const {username, password} = this.state;
         axios.post('/api/login', {username, password})
         .then( res => {
+            this.props.getUser(res.data);
             this.props.history.push('/dashboard');
         })
     }
@@ -68,4 +72,8 @@ export default class Auth extends Component {
         )
     }
 }
+
+
+
+export default connect(null, { getUser })(Auth)
                 
